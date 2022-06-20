@@ -1,0 +1,69 @@
+*{
+    box-sizing: border-box;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+main{
+    padding: 4rem 0;
+    background-color: #f4f4f4;
+}
+
+form{
+    padding: 2rem;
+    margin-bottom: 2rem;
+
+    border: 1px solid #333;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+textarea{
+    outline: none;
+
+    width: 100%;
+    min-height: 5vh;
+    max-height: 30vh;
+
+    resize: vertical;
+
+    padding: 2rem;
+}
+
+button{
+    outline: none;
+    border: 1px solid #333;
+    padding: 1rem 3rem;
+
+    background-color: transparent;
+
+    transition: all .5s ease-in-out;
+}
+
+button:hover{
+    background-color: #333;
+    color: #fafafa;
+}
+
+canvas{
+    display: block;
+    width: 70%;
+    margin: 5rem auto 0;
+    border: 1px solid #333;
+
+    z-index: 3;
+}
+
+#tempCanvas{
+    position: fixed;
+    left: -200rem;
+    opacity: 0;
+    user-select: none;
+}
