@@ -52,13 +52,22 @@ button:hover{
     color: #fafafa;
 }
 
-canvas{
-    display: block;
-    width: 70%;
-    margin: 5rem auto 0;
-    border: 1px solid #333;
+.canvasGroup{
+    display: grid;
+    justify-content: flex-start;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+}
 
-    z-index: 3;
+.canvas{
+    display: block;
+    /*width: 70%;*/
+    border: 1px solid #333;
+}
+
+canvas{
+    width: 100%;
 }
 
 #tempCanvas{
