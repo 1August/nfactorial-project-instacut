@@ -52,6 +52,11 @@ button:hover{
     color: #fafafa;
 }
 
+button:disabled{
+    background-color: #a6a6a6;
+    color: #333;
+}
+
 .canvasGroup{
     display: grid;
     justify-content: flex-start;
@@ -75,4 +80,10 @@ canvas{
     left: -200rem;
     opacity: 0;
     user-select: none;
+}
+
+.canvasGroup a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
