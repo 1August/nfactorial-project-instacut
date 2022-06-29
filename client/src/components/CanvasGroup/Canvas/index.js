@@ -1,4 +1,6 @@
-export const Canvas = (props) => {
+import './Canvas.css'
+
+export const Index = (props) => {
     const {
         refCanvas,
         refDownload,

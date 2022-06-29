@@ -7,24 +7,6 @@
     margin: 0 auto;
 }
 
-main{
-    padding: 4rem 0;
-    background-color: #f4f4f4;
-}
-
-form{
-    padding: 2rem;
-    margin-bottom: 2rem;
-
-    border: 1px solid #333;
-
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    gap: 1rem;
-    flex-direction: column;
-}
-
 textarea{
     outline: none;
 
@@ -39,7 +21,7 @@ textarea{
 
 button{
     outline: none;
-    border: 1px solid #333;
+    border: 1px solid var(--dark-main-color);
     padding: 1rem 3rem;
 
     background-color: transparent;
@@ -48,42 +30,11 @@ button{
 }
 
 button:hover{
-    background-color: #333;
+    background-color: var(--dark-main-color);
     color: #fafafa;
 }
 
-button:disabled{
+button:disabled {
     background-color: #a6a6a6;
-    color: #333;
-}
-
-.canvasGroup{
-    display: grid;
-    justify-content: flex-start;
-    align-items: center;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 2rem;
-}
-
-.canvas{
-    display: block;
-    /*width: 70%;*/
-    border: 1px solid #333;
-}
-
-canvas{
-    width: 100%;
-}
-
-#tempCanvas{
-    position: fixed;
-    left: -200rem;
-    opacity: 0;
-    user-select: none;
-}
-
-.canvasGroup a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: var(--dark-main-color);
 }

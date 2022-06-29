@@ -1,0 +1,9 @@
+.canvas{
+    display: block;
+    /*width: 70%;*/
+    border: 1px solid var(--dark-main-color);
+}
+
+canvas{
+    width: 100%;
+}

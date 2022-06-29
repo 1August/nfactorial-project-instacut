@@ -1,0 +1,13 @@
+.canvasGroup{
+    display: grid;
+    justify-content: flex-start;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+}
+
+.canvasGroup a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

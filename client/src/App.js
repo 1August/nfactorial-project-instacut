@@ -3,18 +3,24 @@
 import useState from 'react-usestateref'
 import {useEffect, useRef} from "react"
 
+import './static/css/variables.css'
 import './App.css'
-import {InputForm} from "./components/InputForm";
-import {Result} from "./components/Result";
+import {Main} from "./components/Main"
 
 
 function App() {
+    // Vars
+    let canvas = []
+    let contexts = []
+
     // useState
+    const [maxCharLength, setMaxCharLength] = useState(900)
+
     const [textarea, setTextarea, refTextarea] = useState('')
     const [textareaCounter, setTextareaCounter] = useState(0)
 
     const [canvasPages, setCanvasPages, refCanvasPages] = useState([])
-    const [canvasLines, setCanvasLines, refCanvasLines] = useState([])
+    const [, setCanvasLines, refCanvasLines] = useState([])
     const [styles, setStyles, refStyles] = useState({
         width: 720,
         fontSize: 36,
@@ -28,17 +34,9 @@ function App() {
         lineHeight: 3
     })
 
-    const [textPart, setTextPart, refTextPart] = useState([])
-    const [picturePart, setPicturePart, refPicturePart] = useState([])
-    const [sentences, setSentences, refSentences] = useState([])
-
-
-    // Vars
-    let canvas = []
-    let contexts = []
-
-    const maxCharLength = 900
-    // const lineHeight = Math.ceil(styles.fontSize / 15)
+    const [, setTextPart, refTextPart] = useState([])
+    const [, setPicturePart, refPicturePart] = useState([])
+    const [, setSentences, refSentences] = useState([])
 
     // useRef
     const refCanvas = useRef([])
@@ -80,8 +78,6 @@ function App() {
         }
         else
             setStyles({...styles, [e.target.name]: val})
-
-        // console.log(refStyles.current)
     }
 
     // Functions
@@ -213,30 +209,22 @@ function App() {
 
     return (
         <div className="App">
-            <main>
-                <div className="container">
-                    <h1>InstaCut</h1>
-                    {/*<a href="#" onClick={handleDownloadAllClick}>Download all</a>*/}
-                    <InputForm
-                        tempCanvas={tempCanvas}
-                        submitBtnRef={submitBtnRef}
-                        maxCharLength={maxCharLength}
-                        textareaCounter={textareaCounter}
-                        handleTextareaChange={handleTextareaChange}
-                        textarea={textarea}
-                        handleFormSubmit={handleFormSubmit}
-                        styles={styles}
-                        handleStylesInputChange={handleStylesInputChange}
-                    />
-                    <Result
-                        refTextPart={refTextPart}
-                        refCanvasPages={refCanvasPages}
-                        refDownload={refDownload}
-                        refCanvas={refCanvas}
-                        canvasPages={canvasPages}
-                    />
-                </div>
-            </main>
+            <Main
+                tempCanvas={tempCanvas}
+                submitBtnRef={submitBtnRef}
+                maxCharLength={maxCharLength}
+                textareaCounter={textareaCounter}
+                handleTextareaChange={handleTextareaChange}
+                textarea={textarea}
+                handleFormSubmit={handleFormSubmit}
+                styles={styles}
+                handleStylesInputChange={handleStylesInputChange}
+                refTextPart={refTextPart}
+                refCanvasPages={refCanvasPages}
+                refDownload={refDownload}
+                refCanvas={refCanvas}
+                canvasPages={canvasPages}
+            />
         </div>
     )
 }

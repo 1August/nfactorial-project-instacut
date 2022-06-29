@@ -1,3 +1,5 @@
+import './InputForm.css'
+
 export const InputForm = ({...props}) => {
     const {
         handleFormSubmit,
@@ -16,6 +18,7 @@ export const InputForm = ({...props}) => {
         bgColor,
         bgOpacity,
         fontFamily,
+        color,
         fontSize,
         padding
     } = styles
@@ -43,12 +46,13 @@ export const InputForm = ({...props}) => {
                 </div>
                 <div className="bgOpacity">
                     <label htmlFor="bgOpacity">Background opacity</label>
-                    <input type="number" id={'bgOpacityInput'} name={'bgOpacity'} value={bgOpacity} onChange={handleStylesInputChange} min={0} max={100} step={5}/>
-                    <input type="range" value={bgOpacity} name={'bgOpacity'} onChange={handleStylesInputChange} min={0} max={100} step={5}/>
+                {/*    <input type="number" id={'bgOpacityInput'} name={'bgOpacity'} value={bgOpacity} onChange={handleStylesInputChange} min={0} max={100} step={5}/>*/}
+                {/*    <input type="range" value={bgOpacity} name={'bgOpacity'} onChange={handleStylesInputChange} min={0} max={100} step={5}/>*/}
                 </div>
                 <div className="padding">
                     <label htmlFor="paddingInput">Padding</label>
                     <input type="number" id={'paddingInput'} name={'padding'} min={20} max={200} value={padding} onChange={handleStylesInputChange}/>
+                    <input type="range" name={'padding'} min={20} max={200} value={padding} onChange={handleStylesInputChange}/>
                 </div>
                 <div className="font">
                     <label htmlFor="fontInput">Font</label>
@@ -60,14 +64,16 @@ export const InputForm = ({...props}) => {
                     </select>
                 </div>
                 <div className="fontColor">
-
+                    <label htmlFor="fontColorInput">Text color</label>
+                    <input type="color" id={'fontColorInput'} name={'color'} value={color} onChange={handleStylesInputChange}/>
                 </div>
                 <div className="textAlign">
-
+                    <label htmlFor=''>Text align</label>
                 </div>
                 <div className="fontSize">
                     <label htmlFor="fontSizeInput">Font size</label>
-                    <input type="number" id={'fontSizeInput'} name={'fontSize'} value={fontSize} onChange={handleStylesInputChange} min={8} max={72}/>
+                    <input type="number" id={'fontSizeInput'} name={'fontSize'} value={fontSize} onChange={handleStylesInputChange} min={14} max={72}/>
+                    <input type="range" name={'fontSize'} value={fontSize} onChange={handleStylesInputChange} min={14} max={72}/>
                 </div>
             </div>
             <button ref={submitBtnRef} type={"submit"}>Create InstaCut</button>

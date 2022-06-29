@@ -1,4 +1,6 @@
-import {Canvas} from "../Canvas";
+import './CanvasGroup.css'
+
+import {Index} from "./Canvas"
 
 export const CanvasGroup = ({...props}) => {
     const {
@@ -12,7 +14,7 @@ export const CanvasGroup = ({...props}) => {
         <div className="canvasGroup">
             {
                 refCanvasPages.current.length > 0 && refCanvasPages.current.map((el, i) => (
-                    <Canvas
+                    <Index
                         key={'canvas' + i}
                         canvasPages={canvasPages}
                         refCanvas={refCanvas}
