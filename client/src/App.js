@@ -7,7 +7,6 @@ import './static/css/variables.css'
 import './App.css'
 import {Main} from "./components/Main"
 
-
 function App() {
     // Vars
     let canvas = []
@@ -65,6 +64,7 @@ function App() {
         submitBtnRef.current.disabled = false
     }
     const handleTextareaChange = e => {
+        console.log('selection', e.target.selectionStart, e.target.selectionEnd)
         setTextarea(e.target.value)
         setTextareaCounter(e.target.value.length)
     }
