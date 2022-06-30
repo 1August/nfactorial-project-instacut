@@ -1,0 +1,19 @@
+button{
+    outline: none;
+    border: none;
+
+    padding: .5rem 1rem;
+
+    border-radius: 3px;
+
+    background-color: rgb(var(--ig-primary-button));
+    color: rgb(var(--web-always-white));
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+button:active{
+    opacity: .7;
+}

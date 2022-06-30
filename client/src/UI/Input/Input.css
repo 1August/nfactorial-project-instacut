@@ -1,0 +1,12 @@
+input{
+    background: transparent;
+    border: 1px solid rgb(var(--ig-stroke));
+    border-radius: 3px;
+    color: rgb(var(--ig-primary-text));
+
+    padding: 5px 10px;
+}
+
+input:focus{
+    border: 1px solid rgb(var(--ig-focus-stroke));
+}

@@ -1,0 +1,40 @@
+#banner{
+    /*flex-grow: 1;*/
+    height: 100%;
+
+    background: url('../../static/img/banner-bg.jpg') no-repeat center / cover;
+
+    position: relative;
+
+    color: #fff;
+}
+
+.banner__bgFilter{
+    position: absolute;
+    inset: 0;
+
+    max-width: unset;
+
+    display: grid;
+    place-items: center;
+
+    backdrop-filter: brightness(.35);
+}
+
+
+.banner__about{
+    display: flex;
+    place-items: center;
+
+    text-decoration: none;
+
+    /*color: var(--ig-primary-text);*/
+
+    padding: .5rem 1rem;
+
+    border-radius: 3px;
+
+    background-color: rgb(var(--ig-primary-button));
+    color: rgb(var(--web-always-white));
+}
+

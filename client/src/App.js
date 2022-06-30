@@ -5,7 +5,16 @@ import {useEffect, useRef} from "react"
 
 import './static/css/variables.css'
 import './App.css'
-import {Main} from "./components/Main"
+import {SettingsPage} from "./components/SettingsPage"
+import {Header} from "./components/Header";
+import {Modal} from "./components/Modal";
+import {Banner} from "./components/Banner";
+
+import {
+    Routes,
+    Route
+} from "react-router-dom"
+
 
 function App() {
     // Vars
@@ -37,6 +46,8 @@ function App() {
     const [, setPicturePart, refPicturePart] = useState([])
     const [, setSentences, refSentences] = useState([])
 
+    const [isModalOpen, setIsModalOpen] = useState(false)
+
     // useRef
     const refCanvas = useRef([])
     const tempCanvas = useRef(null)
@@ -64,7 +75,7 @@ function App() {
         submitBtnRef.current.disabled = false
     }
     const handleTextareaChange = e => {
-        console.log('selection', e.target.selectionStart, e.target.selectionEnd)
+        // console.log('selection', e.target.selectionStart, e.target.selectionEnd)
         setTextarea(e.target.value)
         setTextareaCounter(e.target.value.length)
     }
@@ -209,22 +220,49 @@ function App() {
 
     return (
         <div className="App">
-            <Main
-                tempCanvas={tempCanvas}
-                submitBtnRef={submitBtnRef}
-                maxCharLength={maxCharLength}
-                textareaCounter={textareaCounter}
-                handleTextareaChange={handleTextareaChange}
-                textarea={textarea}
-                handleFormSubmit={handleFormSubmit}
-                styles={styles}
-                handleStylesInputChange={handleStylesInputChange}
-                refTextPart={refTextPart}
-                refCanvasPages={refCanvasPages}
-                refDownload={refDownload}
-                refCanvas={refCanvas}
-                canvasPages={canvasPages}
+            <Header
+                setIsModalOpen={setIsModalOpen}
             />
+            <main>
+                <Routes>
+                    <Route path={'/'} element={
+                        <>
+                            <Banner/>
+                            {
+                                isModalOpen &&
+                                <Modal
+                                    setIsModalOpen={setIsModalOpen}
+                                    textarea={textarea}
+                                    handleTextareaChange={handleTextareaChange}
+                                    textareaCounter={textareaCounter}
+                                    maxCharLength={maxCharLength}
+                                    setTextarea={setTextarea}
+                                />
+                            }
+                        </>}
+                    />
+                    <Route path={'create/*'} element={
+                        <div className="container">
+                            <SettingsPage
+                                tempCanvas={tempCanvas}
+                                submitBtnRef={submitBtnRef}
+                                maxCharLength={maxCharLength}
+                                textareaCounter={textareaCounter}
+                                handleTextareaChange={handleTextareaChange}
+                                textarea={textarea}
+                                handleFormSubmit={handleFormSubmit}
+                                styles={styles}
+                                handleStylesInputChange={handleStylesInputChange}
+                                refTextPart={refTextPart}
+                                refCanvasPages={refCanvasPages}
+                                refDownload={refDownload}
+                                refCanvas={refCanvas}
+                                canvasPages={canvasPages}
+                            />
+                        </div>
+                    }/>
+                </Routes>
+            </main>
         </div>
     )
 }

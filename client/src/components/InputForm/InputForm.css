@@ -1,11 +1,17 @@
 form{
-    padding: 2rem;
-    margin-bottom: 2rem;
+    /*background-color: rgb(var(--ig-primary-background));*/
+    /*border: 1px solid rgb(var(--ig-elevated-separator));*/
+    /*border-radius: 3px;*/
 
-    border: 1px solid var(--dark-main-color);
+    width: 76%;
+
+    padding: 2rem;
+    /*margin: 4rem 0;*/
+
+    /*border: 1px solid var(--dark-main-color);*/
 
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: flex-end;
     gap: 1rem;
     flex-direction: column;
@@ -36,8 +42,21 @@ form{
     display: grid;
     align-items: center;
     justify-content: space-between;
-    grid-template-columns: 1fr 1fr 3fr;
+    grid-template-columns: repeat(3, 2fr);
     grid-gap: 2rem;
+}
+
+.styleInputs label{
+    font-weight: var(--font-weight-system-semibold);
+}
+
+.styleInputs select{
+    outline: none;
+    border: 1px solid rgb(var(--ig-stroke));
+    border-radius: 3px;
+    background-color: transparent;
+
+    padding: 5px 10px;
 }
 
 .styleInputs > * > *:last-child{

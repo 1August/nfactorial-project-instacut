@@ -1,0 +1,41 @@
+header{
+    padding: .5rem 0;
+    border-bottom: 1px solid rgb(var(--ig-elevated-separator));
+}
+
+header .container{
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.header__logo a{
+    color: rgb(var(--ig-primary-text));
+    text-decoration: none;
+}
+
+.header__links{
+    display: grid;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header__links ul{
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+
+}
+
+.header__links img{
+    width: 1.5rem;
+    aspect-ratio: 1;
+}
