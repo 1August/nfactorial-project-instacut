@@ -1,0 +1,14 @@
+#resultPage{
+    margin: 2rem 0;
+
+    background-color: rgb(var(--ig-primary-background));
+    border: 1px solid rgb(var(--ig-elevated-separator));
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    /*gap: 2rem;*/
+
+}

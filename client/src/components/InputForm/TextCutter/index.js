@@ -1,89 +1,69 @@
+import './TextCutter.css'
+
 import {Textarea} from "../../../UI/Textarea";
 import {Button} from "../../../UI/Button";
 import {useRef} from "react";
+import {Link} from "react-router-dom";
 
 export const TextCutter = props => {
     const {
-        refTextPart
+        textPart,
+        picturePart,
+        divideTexts,
+        // setTextPart,
+        // setPicturePart
+        textPartCopy,
+        picturePartCopy
     } = props
 
-    const handleTextPartChange = e => {
-        console.log(e.target.selectionStart)
-        console.log(e.target.selectionEnd)
-    }
-
-    const handleTextareaCaretChangeClick = e => {
-        console.log(e.target.selectionStart)
-        console.log(e.target.selectionEnd)
-    }
+    // const textareaVal = typeof textPart
 
     const caretHelperRef = useRef(null)
+    const toggleTooltip = e => {
+        const text = textPart.join('. ') + '. '
 
-    const tempValue = '111111111111111111111111111111111'
+        // console.log(text.substring(0, e.target.selectionEnd))
+        // console.log(text.substring(e.target.selectionEnd, text.length) + picturePart)
 
-    function getCaretCoordinates() {
-        let x = 0, y = 0;
-        const isSupported = typeof window.getSelection !== "undefined";
-        if (isSupported) {
-            const selection = window.getSelection();
-            // console.log('selection', selection)
+        divideTexts(textPartCopy.substring(0, e.target.selectionEnd).split(/[.?!]/), (textPartCopy.substring(e.target.selectionEnd, text.length) + picturePartCopy).split(/[.?!]/))
 
-            if (selection.rangeCount !== 0) {
-                const range = selection.getRangeAt(0).cloneRange();
-                // console.log('range', range)
-                range.collapse(true);
-                const rect = range.getClientRects()[0];
-                // console.log('rects', rect)
-                if (rect) {
-                    x = rect.left;
-                    y = rect.top;
-                }
-            }
-        }
-        return { x, y };
+
+        caretHelperRef.current.style.opacity = '1'
+        caretHelperRef.current.style.left = `${e.pageX}px`
+        caretHelperRef.current.style.top = `${e.pageY}px`
     }
 
-    const toggleTooltip = e => {
-        console.log('EVENT', +e.clientX - +e.target.offsetLeft)
-
-
-        // if (contenteditable.contains(event.target)) {
-            const { x, y } = getCaretCoordinates();
-            // caretHelperRef.current.setAttribute("aria-hidden", "false");
-            // caretHelperRef.current.setAttribute(
-            //     "style",
-            //     `display: inline-block; left: ${x - 32}px; top: ${y - 36}px`
-            // );
-            caretHelperRef.current.style.display = 'inline-block'
-            caretHelperRef.current.style.left = `${x - 32}px`
-            caretHelperRef.current.style.top = `${y - 36}px`
-        // }
-        // else {
-        //     tooltip.setAttribute("aria-hidden", "true");
-        //     tooltip.setAttribute("style", "display: none;");
-        // }
+    const handleTextareaScroll = e => {
+        caretHelperRef.current.style.opacity = '0'
+        caretHelperRef.current.style.left = `calc(100% + 1000rem)`
+        caretHelperRef.current.style.top = `calc(100% + 1000rem)`
     }
 
     return(
         <div className={'textCutter'}>
+            <h1>Put cursor(caret) where to cut.</h1>
             <div className="textPart">
                 <Textarea
-                    // value={refTextPart.current || ''}
-                    // value={tempValue}
-                    onKeyDown={toggleTooltip}
+                    value={textPartCopy}
                     onClick={toggleTooltip}
                     name="toTextArea"
-                    // id="userInput"
                     placeholder={'Edit your text here...'}
+                    onScroll={handleTextareaScroll}
+                    // translate={false}
+                    spellCheck={false}
                 />
-                {/*className={'withCaretHelper'}*/}
-                {/*data-caret-helper-text={'Cut text here'}*/}
-
-                <div className="caretHelper" ref={caretHelperRef}>
+                <div
+                    className="caretHelper"
+                    ref={caretHelperRef}
+                >
                     Cut text here
                 </div>
             </div>
-            <Button>Next step</Button>
+            <Link to={'/create/step2'}>
+                <Button>
+                    Next step
+                </Button>
+            </Link>
         </div>
     )
 }

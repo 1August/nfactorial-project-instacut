@@ -5,6 +5,7 @@ import {Result} from "../Result";
 import {SettingsList} from "../SettingsList";
 import {Routes, Route} from "react-router-dom";
 import {TextCutter} from "../InputForm/TextCutter";
+import {useState} from "react";
 
 export const SettingsPage = (props) => {
     const {
@@ -21,8 +22,17 @@ export const SettingsPage = (props) => {
         refCanvasPages,
         refDownload,
         refCanvas,
-        canvasPages
+        canvasPages,
+        textPart,
+        handleCreate,
+        divideTexts,
+        setTextPart,
+        setPicturePart,
+        picturePart
     } = props
+
+    const [textPartCopy, setTextPartCopy] = useState([...textPart].join('. '))
+    const [picturePartCopy, setPicturePartCopy] = useState([...picturePart].join('.'))
 
     return(
         <section id={'settingsPage'}>
@@ -31,6 +41,14 @@ export const SettingsPage = (props) => {
                 <Route path={'step1'} element={
                     <TextCutter
                         refTextPart={refTextPart}
+                        textPart={textPart}
+                        divideTexts={divideTexts}
+                        setTextPart={setTextPart}
+                        setPicturePart={setPicturePart}
+                        picturePart={picturePart}
+
+                        textPartCopy={textPartCopy}
+                        picturePartCopy={picturePartCopy}
                     />
                 }/>
                 <Route path={'step2'} element={
@@ -44,6 +62,7 @@ export const SettingsPage = (props) => {
                         handleFormSubmit={handleFormSubmit}
                         styles={styles}
                         handleStylesInputChange={handleStylesInputChange}
+                        handleCreate={handleCreate}
                     />
                 }/>
             </Routes>

@@ -13,7 +13,10 @@ export const Modal = props => {
         handleTextareaChange,
         textareaCounter,
         maxCharLength,
-        setTextarea
+        setTextarea,
+        handleFormSubmit,
+        tempCanvas,
+        handleModalSubmit
     } = props
 
     return (
@@ -35,8 +38,10 @@ export const Modal = props => {
                         />
                         <Link to={'create/step1'}>
                             <Button
+                                onClick={handleModalSubmit}
                                 // setTextarea={setTextarea}
                                 // textarea={textarea}
+                                // handleFormSubmit={handleFormSubmit}
                             >
                                 Create
                             </Button>

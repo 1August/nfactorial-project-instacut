@@ -3,13 +3,12 @@ import './Button.css'
 export const Button = props => {
     const {
         children,
-        // textarea,
-        // setTextarea
+        ...etc
     } = props
 
     return(
         <button
-            // onClick={() => setTextarea(textarea)}
+            {...etc}
         >
             {children}
         </button>

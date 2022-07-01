@@ -1,6 +1,7 @@
 import './CanvasGroup.css'
 
-import {Index} from "./Canvas"
+import {Canvas} from "./Canvas"
+import {Carousel} from "../../UI/Carousel";
 
 export const CanvasGroup = ({...props}) => {
     const {
@@ -11,18 +12,13 @@ export const CanvasGroup = ({...props}) => {
     } = props
 
     return(
-        <div className="canvasGroup">
-            {
-                refCanvasPages.current.length > 0 && refCanvasPages.current.map((el, i) => (
-                    <Index
-                        key={'canvas' + i}
-                        canvasPages={canvasPages}
-                        refCanvas={refCanvas}
-                        refDownload={refDownload}
-                        idx={i}
-                    />
-                ))
-            }
+        <div id="canvasGroup">
+            <Carousel
+                refCanvasPages={refCanvasPages}
+                canvasPages={canvasPages}
+                refDownload={refDownload}
+                refCanvas={refCanvas}
+            />
         </div>
     )
 }

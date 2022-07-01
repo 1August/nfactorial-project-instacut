@@ -31,26 +31,26 @@ textarea::-webkit-scrollbar {
 /*    background-color: #333333;*/
 /*}*/
 
-textarea{
-    position: relative;
-}
+/*textarea{*/
+/*    position: relative;*/
+/*}*/
 
-.caretHelper {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    width: 4rem;
-    display: none;
-    z-index: 9999;
-    background: black;
-    color: white;
-    border-radius: 0.25rem;
-    padding: 0.4rem;
-    font-size: 0.8rem;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 700;
-}
+/*.caretHelper {*/
+/*    position: absolute;*/
+/*    top: 1rem;*/
+/*    left: 1rem;*/
+/*    width: 4rem;*/
+/*    display: none;*/
+/*    z-index: 9999;*/
+/*    background: black;*/
+/*    color: white;*/
+/*    border-radius: 0.25rem;*/
+/*    padding: 0.4rem;*/
+/*    font-size: 0.8rem;*/
+/*    text-align: center;*/
+/*    text-transform: uppercase;*/
+/*    font-weight: 700;*/
+/*}*/
 
 /*.caretHelper::after {*/
 /*    content: " ";*/

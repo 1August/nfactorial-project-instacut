@@ -1,0 +1,11 @@
+#textPart{
+    width: 45%;
+
+    font-size: 14px;
+
+    padding: 1rem;
+}
+
+.resultPrefix{
+    font-weight: var(--font-weight-system-semibold);
+}

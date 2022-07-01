@@ -5,9 +5,17 @@ export const Textarea = props => {
     //     children
     // } = props
 
+    const {
+        textarea,
+        handleTextareaChange,
+        ...etc
+    } = props
+
     return(
         <textarea
-            {...props}
+            value={textarea}
+            onChange={handleTextareaChange}
+            {...etc}
         />
     )
 }

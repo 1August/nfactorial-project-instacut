@@ -1,9 +1,15 @@
 .canvas{
-    display: block;
-    /*width: 70%;*/
-    border: 1px solid var(--dark-main-color);
+    /*display: block;*/
+    /*min-width: fit-content;*/
+    /*border: 1px solid var(--dark-main-color);*/
+
+
 }
 
 canvas{
     width: 100%;
 }
+
+/*.carouselBody > * {*/
+/*    background: red;*/
+/*}*/

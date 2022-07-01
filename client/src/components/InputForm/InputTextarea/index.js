@@ -12,8 +12,8 @@ export const InputTextarea = props => {
     return(
         <>
             <Textarea
-                value={textarea}
-                onChange={handleTextareaChange}
+                textarea={textarea}
+                handleTextareaChange={handleTextareaChange}
                 name="userInput"
                 id="userInput"
                 placeholder={'Write your text here...'}

@@ -1,5 +1,7 @@
 import './InputForm.css'
 import {Input} from "../../UI/Input";
+import {Button} from "../../UI/Button";
+import {Link} from "react-router-dom";
 
 export const InputForm = ({...props}) => {
     const {
@@ -11,7 +13,8 @@ export const InputForm = ({...props}) => {
         submitBtnRef,
         tempCanvas,
         styles,
-        handleStylesInputChange
+        handleStylesInputChange,
+        handleCreate
     } = props
 
     const {
@@ -68,7 +71,15 @@ export const InputForm = ({...props}) => {
                     <Input type="range" name={'fontSize'} value={fontSize} onChange={handleStylesInputChange} min={14} max={72}/>
                 </div>
             </div>
-            <button ref={submitBtnRef} type={"submit"}>Create InstaCut</button>
+            <Link to={'/result'}>
+                <Button
+                    ref={submitBtnRef}
+                    type={"submit"}
+                    onClick={handleCreate}
+                >
+                    Create InstaCut
+                </Button>
+            </Link>
             <canvas
                 id="tempCanvas"
                 ref={tempCanvas}

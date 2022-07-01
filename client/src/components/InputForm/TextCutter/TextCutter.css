@@ -1,0 +1,57 @@
+.textCutter{
+    padding: 2rem;
+
+    flex-grow: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.textCutter h1{
+    width: 100%;
+    text-align: center;
+}
+
+.textCutter textarea{
+    caret-color: red;
+    caret-shape: block;
+}
+
+.textPart{
+    width: 100%;
+
+    position: relative;
+}
+
+.caretHelper{
+    /*background-color: rgba(16, 16, 16, .9);*/
+    background-color: #333;
+    color: #fff;
+
+    padding: 1rem;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    place-items: center;
+
+    transform: translate(-50%, calc(-100% - 1.5rem));
+    visibility: initial;
+}
+
+.caretHelper::before{
+    content: '';
+    width: 1rem;
+    height: 1rem;
+    background-color: #333333;
+
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}

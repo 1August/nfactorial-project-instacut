@@ -14,6 +14,9 @@ import {
     Routes,
     Route
 } from "react-router-dom"
+import {ResultPage} from "./pages/ResultPage";
+import {TextPart} from "./components/TextPart";
+import {CanvasGroup} from "./components/CanvasGroup";
 
 
 function App() {
@@ -42,17 +45,20 @@ function App() {
         lineHeight: 3
     })
 
-    const [, setTextPart, refTextPart] = useState([])
-    const [, setPicturePart, refPicturePart] = useState([])
+    const [textPart, setTextPart, refTextPart] = useState([])
+    const [picturePart, setPicturePart, refPicturePart] = useState([])
     const [, setSentences, refSentences] = useState([])
 
     const [isModalOpen, setIsModalOpen] = useState(false)
+
+    const [downloadLinks, setDownloadLinks] = useState([])
 
     // useRef
     const refCanvas = useRef([])
     const tempCanvas = useRef(null)
     const refDownload = useRef([])
     const submitBtnRef = useRef(null)
+
 
     // useEffect
     useEffect(()=>{
@@ -64,20 +70,29 @@ function App() {
 
     // Handlers
     const handleFormSubmit = e => {
-        e.preventDefault()
-        submitBtnRef.current.disabled = true
+        e?.preventDefault()
+        // submitBtnRef.current.disabled = true
 
-        setSentences(getSentencesArr(refTextarea.current))
-        divideTexts()
-
-        setCanvasLines(getCanvasLines(refPicturePart.current.join('. ')))
-        setCanvasPages(divideByPages(refCanvasLines.current))
-        submitBtnRef.current.disabled = false
+        // setSentences(getSentencesArr(refTextarea.current))
+        // divideTexts()
+        //
+        // setCanvasLines(getCanvasLines(refPicturePart.current.join('. ')))
+        // setCanvasPages(divideByPages(refCanvasLines.current))
+        // submitBtnRef.current.disabled = false
     }
     const handleTextareaChange = e => {
         // console.log('selection', e.target.selectionStart, e.target.selectionEnd)
         setTextarea(e.target.value)
         setTextareaCounter(e.target.value.length)
+    }
+    const handleModalSubmit = () => {
+        setIsModalOpen(false)
+        setSentences(getSentencesArr(refTextarea.current))
+        divideTexts()
+    }
+    const handleCreate = () => {
+        setCanvasLines(getCanvasLines(refPicturePart.current.join('. ')))
+        setCanvasPages(divideByPages(refCanvasLines.current))
     }
     const handleStylesInputChange = e => {
         const val = e.target.value
@@ -114,13 +129,18 @@ function App() {
         }
         return res
     }
-    const divideTexts = () => {
+    const divideTexts = (setToText, setToPicture) => {
+        if (setToText && setToPicture){
+            setTextPart(setToText)
+            setPicturePart(setToPicture)
+            return
+        }
         const toText = []
         const toPicture = []
         let addToText = true
 
         for (let i = 0; i < refSentences.current.length; i++) {
-            if (addToText && toText.join('').length + refSentences.current[i].length < maxCharLength) {
+            if (addToText && toText.join('. ').length + refSentences.current[i].length < maxCharLength) {
                 toText.push(refSentences.current[i])
             } else {
                 addToText = false
@@ -139,12 +159,18 @@ function App() {
 
         const jCoefficient = 2 * lineHeight + fontSize
 
+        const newDownloads = []
         for (let i = 0; i < refCanvasPages.current.length; i++) {
             for (let j = 0; j < refCanvasPages.current[i].length; j++) {
                 contexts[i].fillText(refCanvasPages.current[i][j], padding, j * jCoefficient + padding)
             }
+            newDownloads.push(refCanvas.current[i].toDataURL('image/png'))
             refDownload.current[i].href = refCanvas.current[i].toDataURL('image/png')
         }
+
+        setDownloadLinks([...newDownloads])
+
+        console.log(downloadLinks)
     }
     const getCanvasLines = text => {
         const maxWidth = styles.width - (2 * styles.padding)
@@ -228,17 +254,6 @@ function App() {
                     <Route path={'/'} element={
                         <>
                             <Banner/>
-                            {
-                                isModalOpen &&
-                                <Modal
-                                    setIsModalOpen={setIsModalOpen}
-                                    textarea={textarea}
-                                    handleTextareaChange={handleTextareaChange}
-                                    textareaCounter={textareaCounter}
-                                    maxCharLength={maxCharLength}
-                                    setTextarea={setTextarea}
-                                />
-                            }
                         </>}
                     />
                     <Route path={'create/*'} element={
@@ -258,10 +273,43 @@ function App() {
                                 refDownload={refDownload}
                                 refCanvas={refCanvas}
                                 canvasPages={canvasPages}
+                                textPart={textPart}
+                                handleCreate={handleCreate}
+
+                                divideTexts={divideTexts}
+                                picturePart={picturePart}
+                                setTextPart={setTextPart}
+                                setPicturePart={setPicturePart}
+                            />
+                        </div>
+                    }/>
+                    <Route path={'result'} element={
+                        <div className="container">
+                            <ResultPage
+                                refTextPart={refTextPart}
+                                refCanvasPages={refCanvasPages}
+                                refDownload={refDownload}
+                                refCanvas={refCanvas}
+                                canvasPages={canvasPages}
+                                downloadLinks={downloadLinks}
                             />
                         </div>
                     }/>
                 </Routes>
+                {
+                    isModalOpen &&
+                    <Modal
+                        setIsModalOpen={setIsModalOpen}
+                        handleTextareaChange={handleTextareaChange}
+                        handleFormSubmit={handleFormSubmit}
+                        textarea={textarea}
+                        setTextarea={setTextarea}
+                        textareaCounter={textareaCounter}
+                        maxCharLength={maxCharLength}
+                        tempCanvas={tempCanvas}
+                        handleModalSubmit={handleModalSubmit}
+                    />
+                }
             </main>
         </div>
     )
