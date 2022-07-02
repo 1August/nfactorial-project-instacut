@@ -9,3 +9,10 @@
     border: 1px solid rgb(var(--ig-elevated-separator));
     border-radius: 3px;
 }
+
+
+@media screen and (max-width: 768px) {
+    #settingsPage{
+        flex-direction: column;
+    }
+}

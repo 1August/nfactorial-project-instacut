@@ -24,6 +24,7 @@
 .container{
     max-width: 1024px;
     margin: 0 auto;
+    padding: 0 2rem;
 }
 
 main{
@@ -35,6 +36,12 @@ main{
 
 button, input, textarea{
     font-family: var(--font-family-system);
+}
+
+@media screen and (max-width: 768px) {
+    .dyn_container{
+        width: 75%;
+    }
 }
 
 /*textarea{*/

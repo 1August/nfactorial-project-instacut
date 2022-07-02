@@ -5,12 +5,8 @@ export const Banner = props => {
         <div id="banner">
             <div className="banner__bgFilter">
                 <div className="container">
-                    {/*<div className="banner__btnGroup">*/}
-                    {/*<a href="#" className={'banner__about'}>About</a>*/}
-
-                    {/*</div>*/}
                     <div className="banner__info">
-                        <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, voluptatem!</h1>
+                        <h1>Automate creating your Instagram post.</h1>
                         <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid commodi cumque iste itaque modi nemo odio quisquam ratione saepe veritatis.</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consequatur, delectus
                             exercitationem expedita explicabo ipsa ipsam libero molestias neque, odio optio quam quibusdam

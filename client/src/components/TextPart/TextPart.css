@@ -9,3 +9,10 @@
 .resultPrefix{
     font-weight: var(--font-weight-system-semibold);
 }
+
+
+@media screen and (max-width: 768px) {
+    #textPart{
+        width: 100%;
+    }
+}
