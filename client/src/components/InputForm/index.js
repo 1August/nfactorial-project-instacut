@@ -35,9 +35,6 @@ export const InputForm = ({...props}) => {
                     <label htmlFor="bgColor">Background color</label>
                     <Input type="color" id={'bgColorInput'} value={bgColor} name={'bgColor'} onChange={handleStylesInputChange}/>
                 </div>
-                <div className="bgOpacity">
-                    <label htmlFor="bgOpacity">Background opacity</label>
-                </div>
                 <div className="padding">
                     <label htmlFor="paddingInput">Padding (px)</label>
                     <Input type="number" id={'paddingInput'} name={'padding'} min={20} max={200} value={padding} onChange={handleStylesInputChange}/>
@@ -55,9 +52,6 @@ export const InputForm = ({...props}) => {
                 <div className="fontColor">
                     <label htmlFor="fontColorInput">Text color</label>
                     <Input type="color" id={'fontColorInput'} name={'color'} value={color} onChange={handleStylesInputChange}/>
-                </div>
-                <div className="textAlign">
-                    <label htmlFor=''>Text align</label>
                 </div>
                 <div className="fontSize">
                     <label htmlFor="fontSizeInput">Font size</label>

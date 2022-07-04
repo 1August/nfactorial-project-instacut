@@ -21,13 +21,12 @@ function App() {
     const [canvasPages, setCanvasPages, refCanvasPages] = useState([])
     const [, setCanvasLines, refCanvasLines] = useState([])
     const [styles, setStyles, refStyles] = useState({
-        width: 720,
-        fontSize: 36,
+        width: 1920,
+        fontSize: 40,
         fontFamily: 'sans-serif',
         color: '#000000',
         padding: 36,
         bgColor: '#ffffff',
-        bgOpacity: '',
         textAlign: 'left',
         textBaseline: 'top',
         lineHeight: 3
