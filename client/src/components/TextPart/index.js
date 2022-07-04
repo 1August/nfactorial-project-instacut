@@ -1,12 +1,12 @@
 import './TextPart.css'
 
-export const TextPart = ({...props}) => {
+export const TextPart = props => {
     const {
         refTextPart,
         downloadLinks
     } = props
 
-    const downloadAll = (e, filename) => {
+    const downloadAll = e => {
         e.preventDefault()
         for (let i = 0; i < downloadLinks.length; i++) {
             setTimeout(() => {
@@ -20,17 +20,17 @@ export const TextPart = ({...props}) => {
     }
 
     return (
-        <div id="textPart">
+        <div id="textPart" className={'textPart'}>
             <p>
                 <span className={'resultPrefix'}>You. </span>
                 {
                     (
                         refTextPart.current.length > 0
                         && `${refTextPart.current.join('. ') + '.'}`
-                    ) || 'Download your InstaCut here...'
+                    ) || 'Text is empty!'
                 }
             </p>
-            <a href="#" onClick={e => downloadAll(e, 'Canvas')}>Download all</a>
+            <a href="#" onClick={downloadAll}>Download all</a>
         </div>
     )
 }

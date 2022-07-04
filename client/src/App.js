@@ -1,17 +1,11 @@
+import './App.css'
+import './static/css/variables.css'
+
 import useState from 'react-usestateref'
 import {useEffect, useRef} from "react"
-
-import './static/css/variables.css'
-import './App.css'
-
-import {SettingsPage} from "./components/SettingsPage"
 import {Header} from "./components/Header"
 import {Modal} from "./components/Modal"
-import {Banner} from "./components/Banner"
-
-import {Routes, Route} from "react-router-dom"
-import {ResultPage} from "./pages/ResultPage"
-
+import {MyRoutes} from "./MyRoutes"
 
 function App() {
     // Vars
@@ -19,7 +13,7 @@ function App() {
     let contexts = []
 
     // useState
-    const [maxCharLength, setMaxCharLength] = useState(900)
+    const [maxCharLength] = useState(900)
 
     const [textarea, setTextarea, refTextarea] = useState('')
     const [textareaCounter, setTextareaCounter] = useState(0)
@@ -31,7 +25,7 @@ function App() {
         fontSize: 36,
         fontFamily: 'sans-serif',
         color: '#000000',
-        padding:  36,
+        padding: 36,
         bgColor: '#ffffff',
         bgOpacity: '',
         textAlign: 'left',
@@ -53,29 +47,9 @@ function App() {
     const refDownload = useRef([])
     const submitBtnRef = useRef(null)
 
-
-    // useEffect
-    useEffect(()=>{
-        if(!refCanvas.current) return
-        createCanvas()
-        setCanvasStyles()
-        putTextIntoContext()
-    },[refCanvasPages.current])
-
     // Handlers
-    const handleFormSubmit = e => {
-        e?.preventDefault()
-        // submitBtnRef.current.disabled = true
 
-        // setSentences(getSentencesArr(refTextarea.current))
-        // divideTexts()
-        //
-        // setCanvasLines(getCanvasLines(refPicturePart.current.join('. ')))
-        // setCanvasPages(divideByPages(refCanvasLines.current))
-        // submitBtnRef.current.disabled = false
-    }
     const handleTextareaChange = e => {
-        // console.log('selection', e.target.selectionStart, e.target.selectionEnd)
         setTextarea(e.target.value)
         setTextareaCounter(e.target.value.length)
     }
@@ -90,13 +64,12 @@ function App() {
     }
     const handleStylesInputChange = e => {
         const val = e.target.value
-        if (Number.isInteger(+val)){
-            if (e.target.name === 'bgOpacity' && +e.target.value === 100){
+        if (Number.isInteger(+val)) {
+            if (e.target.name === 'bgOpacity' && +e.target.value === 100) {
                 return setStyles({...styles, [e.target.name]: ''})
             }
             return setStyles({...styles, [e.target.name]: +val})
-        }
-        else
+        } else
             setStyles({...styles, [e.target.name]: val})
     }
 
@@ -124,7 +97,7 @@ function App() {
         return res
     }
     const divideTexts = (setToText, setToPicture) => {
-        if (setToText && setToPicture){
+        if (setToText && setToPicture) {
             setTextPart(setToText)
             setPicturePart(setToPicture)
             return
@@ -161,10 +134,7 @@ function App() {
             newDownloads.push(refCanvas.current[i].toDataURL('image/png'))
             refDownload.current[i].href = refCanvas.current[i].toDataURL('image/png')
         }
-
         setDownloadLinks([...newDownloads])
-
-        console.log(downloadLinks)
     }
     const getCanvasLines = text => {
         const maxWidth = styles.width - (2 * styles.padding)
@@ -238,64 +208,47 @@ function App() {
         }
     }
 
+    // useEffect
+    useEffect(() => {
+        if (!refCanvas.current) return
+        createCanvas()
+        setCanvasStyles()
+        putTextIntoContext()
+    }, [refCanvasPages.current])
+
     return (
         <div className="App">
             <Header
                 setIsModalOpen={setIsModalOpen}
             />
             <main>
-                <Routes>
-                    <Route path={'/'} element={
-                        <>
-                            <Banner/>
-                        </>
-                    }/>
-                    <Route path={'create/*'} element={
-                        <div className="container">
-                            <SettingsPage
-                                tempCanvas={tempCanvas}
-                                submitBtnRef={submitBtnRef}
-                                maxCharLength={maxCharLength}
-                                textareaCounter={textareaCounter}
-                                handleTextareaChange={handleTextareaChange}
-                                textarea={textarea}
-                                handleFormSubmit={handleFormSubmit}
-                                styles={styles}
-                                handleStylesInputChange={handleStylesInputChange}
-                                refTextPart={refTextPart}
-                                refCanvasPages={refCanvasPages}
-                                refDownload={refDownload}
-                                refCanvas={refCanvas}
-                                canvasPages={canvasPages}
-                                textPart={textPart}
-                                handleCreate={handleCreate}
-
-                                divideTexts={divideTexts}
-                                picturePart={picturePart}
-                                setTextPart={setTextPart}
-                                setPicturePart={setPicturePart}
-                            />
-                        </div>
-                    }/>
-                    <Route path={'result'} element={
-                        <div className="container">
-                            <ResultPage
-                                refTextPart={refTextPart}
-                                refCanvasPages={refCanvasPages}
-                                refDownload={refDownload}
-                                refCanvas={refCanvas}
-                                canvasPages={canvasPages}
-                                downloadLinks={downloadLinks}
-                            />
-                        </div>
-                    }/>
-                </Routes>
+                <MyRoutes
+                    tempCanvas={tempCanvas}
+                    submitBtnRef={submitBtnRef}
+                    maxCharLength={maxCharLength}
+                    textareaCounter={textareaCounter}
+                    handleTextareaChange={handleTextareaChange}
+                    textarea={textarea}
+                    styles={styles}
+                    handleStylesInputChange={handleStylesInputChange}
+                    refTextPart={refTextPart}
+                    refCanvasPages={refCanvasPages}
+                    refDownload={refDownload}
+                    refCanvas={refCanvas}
+                    canvasPages={canvasPages}
+                    textPart={textPart}
+                    handleCreate={handleCreate}
+                    divideTexts={divideTexts}
+                    picturePart={picturePart}
+                    setTextPart={setTextPart}
+                    setPicturePart={setPicturePart}
+                    downloadLinks={downloadLinks}
+                />
                 {
                     isModalOpen &&
                     <Modal
                         setIsModalOpen={setIsModalOpen}
                         handleTextareaChange={handleTextareaChange}
-                        handleFormSubmit={handleFormSubmit}
                         textarea={textarea}
                         setTextarea={setTextarea}
                         textareaCounter={textareaCounter}

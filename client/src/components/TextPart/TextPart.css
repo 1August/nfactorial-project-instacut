@@ -1,4 +1,4 @@
-#textPart{
+.textPart {
     width: 45%;
 
     font-size: 14px;
@@ -6,13 +6,24 @@
     padding: 1rem;
 }
 
-.resultPrefix{
+.textPart a {
+    display: inline-block;
+    font-weight: var(--font-weight-system-semibold);
+    font-size: var(--system-12-font-size);
+    line-height: var(--system-12-line-height);
+    font-family: var(--font-family-system);
+    color: rgb(var(--ig-primary-button));
+    text-decoration: none;
+    margin: 1rem 0;
+    float: right;
+}
+
+.resultPrefix {
     font-weight: var(--font-weight-system-semibold);
 }
 
-
 @media screen and (max-width: 768px) {
-    #textPart{
+    #textPart {
         width: 100%;
     }
 }

@@ -1,17 +1,15 @@
 import './TextCutter.css'
 
-import {Textarea} from "../../../UI/Textarea";
-import {Button} from "../../../UI/Button";
-import {useRef} from "react";
-import {Link} from "react-router-dom";
+import {Textarea} from "../../../UI/Textarea"
+import {Button} from "../../../UI/Button"
+
+import {useRef} from "react"
+import {Link} from "react-router-dom"
 
 export const TextCutter = props => {
     const {
         textPart,
-        picturePart,
         divideTexts,
-        // setTextPart,
-        // setPicturePart
         textPartCopy,
         picturePartCopy
     } = props
@@ -21,12 +19,7 @@ export const TextCutter = props => {
     const caretHelperRef = useRef(null)
     const toggleTooltip = e => {
         const text = textPart.join('. ') + '. '
-
-        // console.log(text.substring(0, e.target.selectionEnd))
-        // console.log(text.substring(e.target.selectionEnd, text.length) + picturePart)
-
         divideTexts(textPartCopy.substring(0, e.target.selectionEnd).split(/[.?!]/), (textPartCopy.substring(e.target.selectionEnd, text.length) + picturePartCopy).split(/[.?!]/))
-
 
         caretHelperRef.current.style.opacity = '1'
         caretHelperRef.current.style.left = `${e.pageX}px`

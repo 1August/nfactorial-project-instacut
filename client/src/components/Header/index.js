@@ -4,7 +4,9 @@ import addPostIcon from '../../static/img/Add.png'
 import homeIcon from '../../static/img/Home.png'
 import aboutIcon from '../../static/img/User.png'
 
-export const Header = (props) => {
+import {Link} from "react-router-dom"
+
+export const Header = props => {
     const {
         setIsModalOpen
     } = props
@@ -12,7 +14,6 @@ export const Header = (props) => {
     // Handlers
     const handleOpenModalClick = e => {
         e.preventDefault()
-
         setIsModalOpen(true)
     }
 
@@ -20,15 +21,15 @@ export const Header = (props) => {
         <header>
             <div className="container">
                 <div className="header__logo">
-                    <a href="/">
+                    <Link to="/">
                         <h1>InstaCut</h1>
-                    </a>
+                    </Link>
                 </div>
                 <div className="header__links">
                     <ul>
-                        <li className={'header__home'}><a href="/"><img src={homeIcon} alt="link"/></a></li>
-                        <li className={'header__addPost'}><a href="#" onClick={handleOpenModalClick}><img src={addPostIcon} alt="link"/></a></li>
-                        <li className={'header__about'}><a href="#"><img src={aboutIcon} alt="link"/></a></li>
+                        <li className={'header__home'}><Link to="/"><img src={homeIcon} alt="link"/></Link></li>
+                        <li className={'header__addPost'}><Link to="#" onClick={handleOpenModalClick}><img src={addPostIcon} alt="link"/></Link></li>
+                        <li className={'header__about'}><Link to="about"><img src={aboutIcon} alt="link"/></Link></li>
                     </ul>
                 </div>
             </div>

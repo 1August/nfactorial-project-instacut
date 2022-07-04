@@ -1,7 +1,7 @@
 import './ResultPage.css'
 
-import {TextPart} from "../../components/TextPart";
-import {CanvasGroup} from "../../components/CanvasGroup";
+import {TextPart} from "../../components/TextPart"
+import {CanvasGroup} from "../../components/CanvasGroup"
 
 export const ResultPage = props => {
     const {

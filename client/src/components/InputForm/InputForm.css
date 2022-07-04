@@ -1,14 +1,7 @@
 form{
-    /*background-color: rgb(var(--ig-primary-background));*/
-    /*border: 1px solid rgb(var(--ig-elevated-separator));*/
-    /*border-radius: 3px;*/
-
     width: 76%;
 
     padding: 2rem;
-    /*margin: 4rem 0;*/
-
-    /*border: 1px solid var(--dark-main-color);*/
 
     display: flex;
     justify-content: center;
@@ -75,7 +68,6 @@ form{
 
     .styleInputs > *{
         grid-template-columns: repeat(2, 1fr);
-        /*grid-auto-rows: 1fr 1fr;*/
         grid-gap: .5rem;
 
         padding-bottom: 1.5rem;

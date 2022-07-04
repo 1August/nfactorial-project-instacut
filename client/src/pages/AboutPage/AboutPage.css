@@ -1,0 +1,69 @@
+.aboutPage{
+    margin: 2rem 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.about__aboutMe{
+    display: flex;
+    place-items: center;
+}
+
+.about__avatar{
+    width: 40%;
+
+    display: flex;
+}
+
+.about__avatar img{
+    display: block;
+    margin: auto;
+
+    width: 40%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 100%;
+
+    box-shadow: 0 0 0 8px #fff, 0 0 0 10px rgb(var(--ig-stroke));
+
+    cursor: pointer;
+}
+
+.about__info{
+    width: 60%;
+}
+
+.about__info span{
+    font-weight: 600;
+}
+
+.about__info > * + div{
+    margin-top: 1rem;
+}
+
+.about__mainInfo{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+
+.about__mainInfo h1{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    color: rgb(var(--ig-primary-text));
+    font-weight: var(--font-weight-system-light);
+    font-size: var(--system-28-font-size);
+    line-height: var(--system-28-line-height);
+}
+
+.about__accountInfo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

@@ -20,14 +20,12 @@
     caret-shape: block;
 }
 
-.textPart{
+.textCutter .textPart{
     width: 100%;
-
     position: relative;
 }
 
 .caretHelper{
-    /*background-color: rgba(16, 16, 16, .9);*/
     background-color: #333;
     color: #fff;
 

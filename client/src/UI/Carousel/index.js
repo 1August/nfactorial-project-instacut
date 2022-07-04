@@ -1,19 +1,17 @@
-import React, {useState} from "react"
-
 import './Carousel.css'
 
 import rightArrow from '../../static/img/right.png'
 import leftArrow from '../../static/img/left.png'
-import {Canvas} from "../../components/CanvasGroup/Canvas";
+
+import {Canvas} from "../../components/CanvasGroup/Canvas"
+import React, {useState} from "react"
 
 export const Carousel = props => {
     const {
-        children,
         refCanvasPages,
         canvasPages,
         refDownload,
-        refCanvas,
-        etc
+        refCanvas
     } = props
 
     const [activeCanvasIdx, setActiveCanvasIdx] = useState(0)
@@ -31,7 +29,6 @@ export const Carousel = props => {
     return (
         <div id={'carousel'}>
             <div className="carouselBody">
-                {/*{children || <h1>Body is empty</h1>}*/}
                 {
                     refCanvasPages.current.length > 0 && refCanvasPages.current.map((el, i) => (
                         <Canvas

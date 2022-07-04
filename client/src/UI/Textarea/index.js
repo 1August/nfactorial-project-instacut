@@ -1,10 +1,6 @@
 import './Textarea.css'
 
 export const Textarea = props => {
-    // const {
-    //     children
-    // } = props
-
     const {
         textarea,
         handleTextareaChange,

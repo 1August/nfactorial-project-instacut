@@ -1,4 +1,4 @@
-#settingsPage ul{
+#settingsPage ul {
     flex-grow: 1;
     max-width: 24%;
 
@@ -10,7 +10,7 @@
     margin: 0;
 }
 
-#settingsPage ul a{
+#settingsPage ul a {
     display: flex;
 
     padding: 1rem;
@@ -20,14 +20,14 @@
     color: rgb(var(--ig-primary-text));
 }
 
-#settingsPage a.active{
+#settingsPage a.active {
     font-weight: var(--font-weight-system-semibold);
     border-left: 2px solid rgb(var(--ig-secondary-button));
 }
 
 
 @media screen and (max-width: 768px) {
-    #settingsPage ul{
+    #settingsPage ul {
         width: 100%;
         max-width: unset;
 
@@ -36,7 +36,7 @@
         justify-content: space-evenly;
     }
 
-    #settingsPage ul li{
+    #settingsPage ul li {
         flex-grow: 1;
 
         display: flex;
@@ -44,12 +44,12 @@
         justify-content: center;
     }
 
-    #settingsPage ul a{
+    #settingsPage ul a {
         width: 100%;
         justify-content: center;
     }
 
-    #settingsPage a.active{
+    #settingsPage a.active {
         font-weight: var(--font-weight-system-semibold);
         border-left: none;
         border-bottom: 2px solid rgb(var(--ig-secondary-button));

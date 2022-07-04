@@ -1,17 +1,6 @@
 #canvasGroup{
-    /*display: grid;*/
-    /*justify-content: flex-start;*/
-    /*align-items: center;*/
-    /*grid-template-columns: repeat(2, 1fr);*/
-    /*grid-gap: 2rem;*/
-
-
-    /*display: flex;*/
-    /*overflow: hidden;*/
-
     width: 55%;
     aspect-ratio: 1;
-    /*aspect-ratio: 1;*/
 
     display: flex;
     overflow: hidden;
@@ -25,7 +14,6 @@
     align-items: center;
     justify-content: center;
 }
-
 
 @media screen and (max-width: 768px) {
     #canvasGroup{

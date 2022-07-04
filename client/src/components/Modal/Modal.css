@@ -1,4 +1,4 @@
-#modal{
+#modal {
     position: fixed;
     inset: 0;
 
@@ -7,7 +7,7 @@
     z-index: 10;
 }
 
-.modal__close{
+.modal__close {
     position: absolute;
 
     right: 5rem;
@@ -17,12 +17,12 @@
     color: #fff;
 }
 
-.modal__close img{
+.modal__close img {
     width: 18px;
     aspect-ratio: 1;
 }
 
-#modal .dyn_container{
+#modal .dyn_container {
     position: relative;
 
     top: 50%;
@@ -31,24 +31,24 @@
     min-height: 50vh;
 }
 
-.modal__header{
+.modal__header {
     border-bottom: 1px solid rgb(var(--ig-elevated-separator));
 }
 
-.modal__header h4{
+.modal__header h4 {
     text-align: center;
 }
 
-.modal__body{
+.modal__body {
     background-color: #fff;
     border-radius: var(--modal-border-radius);
 }
 
-.modal__body > *{
+.modal__body > * {
     padding: 1rem;
 }
 
-.modal__content{
+.modal__content {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -56,10 +56,8 @@
     gap: 1rem;
 }
 
-
-
 @media screen and (max-width: 768px) {
-    .modal__close{
+    .modal__close {
         right: 2rem;
     }
 }

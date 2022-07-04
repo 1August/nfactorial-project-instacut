@@ -1,9 +1,10 @@
 import './Modal.css'
 
 import closeIcon from '../../static/img/Close.png'
-import {InputTextarea} from "../InputForm/InputTextarea"
+
 import {Button} from "../../UI/Button"
 
+import {InputTextarea} from "../InputForm/InputTextarea"
 import { Link } from "react-router-dom"
 
 export const Modal = props => {
@@ -13,9 +14,6 @@ export const Modal = props => {
         handleTextareaChange,
         textareaCounter,
         maxCharLength,
-        setTextarea,
-        handleFormSubmit,
-        tempCanvas,
         handleModalSubmit
     } = props
 
@@ -39,9 +37,6 @@ export const Modal = props => {
                         <Link to={'create/step1'}>
                             <Button
                                 onClick={handleModalSubmit}
-                                // setTextarea={setTextarea}
-                                // textarea={textarea}
-                                // handleFormSubmit={handleFormSubmit}
                             >
                                 Create
                             </Button>

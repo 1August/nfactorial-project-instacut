@@ -1,9 +1,8 @@
 import './CanvasGroup.css'
 
-import {Canvas} from "./Canvas"
-import {Carousel} from "../../UI/Carousel";
+import {Carousel} from "../../UI/Carousel"
 
-export const CanvasGroup = ({...props}) => {
+export const CanvasGroup = props => {
     const {
         refCanvasPages,
         canvasPages,

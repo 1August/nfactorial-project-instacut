@@ -1,15 +1,12 @@
 import './InputForm.css'
-import {Input} from "../../UI/Input";
-import {Button} from "../../UI/Button";
-import {Link} from "react-router-dom";
+
+import {Input} from "../../UI/Input"
+import {Button} from "../../UI/Button"
+
+import {Link} from "react-router-dom"
 
 export const InputForm = ({...props}) => {
     const {
-        handleFormSubmit,
-        textarea,
-        handleTextareaChange,
-        textareaCounter,
-        maxCharLength,
         submitBtnRef,
         tempCanvas,
         styles,
@@ -20,7 +17,6 @@ export const InputForm = ({...props}) => {
     const {
         width,
         bgColor,
-        bgOpacity,
         fontFamily,
         color,
         fontSize,
@@ -28,7 +24,7 @@ export const InputForm = ({...props}) => {
     } = styles
 
     return (
-        <form onSubmit={handleFormSubmit}>
+        <form>
             <div className="styleInputs">
                 <div className="width">
                     <label htmlFor={'widthInput'}>Width (px)</label>
@@ -41,8 +37,6 @@ export const InputForm = ({...props}) => {
                 </div>
                 <div className="bgOpacity">
                     <label htmlFor="bgOpacity">Background opacity</label>
-                {/*    <Input type="number" id={'bgOpacityInput'} name={'bgOpacity'} value={bgOpacity} onChange={handleStylesInputChange} min={0} max={100} step={5}/>*/}
-                {/*    <Input type="range" value={bgOpacity} name={'bgOpacity'} onChange={handleStylesInputChange} min={0} max={100} step={5}/>*/}
                 </div>
                 <div className="padding">
                     <label htmlFor="paddingInput">Padding (px)</label>
@@ -87,16 +81,3 @@ export const InputForm = ({...props}) => {
         </form>
     )
 }
-
-
-
-
-{/*<textarea*/}
-{/*    value={textarea}*/}
-{/*    onChange={handleTextareaChange}*/}
-{/*    name="userInput"*/}
-{/*    id="userInput"*/}
-{/*    cols="30" rows="10"*/}
-{/*    placeholder={'Write your text here...'}*/}
-{/*/>*/}
-// <span className={'textareaCounter'}>{textareaCounter} / {maxCharLength}</span>

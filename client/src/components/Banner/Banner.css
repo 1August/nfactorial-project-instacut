@@ -1,5 +1,4 @@
-#banner{
-    /*flex-grow: 1;*/
+#banner {
     height: 100%;
 
     background: url('../../static/img/banner-bg.jpg') no-repeat center / cover;
@@ -9,21 +8,20 @@
     color: #fff;
 }
 
-.banner__info > *{
+.banner__info > * {
     margin-bottom: 1rem;
 }
 
-.banner__helper{
+.banner__helper {
     font-size: 150%;
-    /*font-weight: 700;*/
     text-align: center;
 }
 
-.banner__helper span{
+.banner__helper span {
     font-weight: 900;
 }
 
-.banner__bgFilter{
+.banner__bgFilter {
     position: absolute;
     inset: 0;
 
@@ -36,13 +34,11 @@
 }
 
 
-.banner__about{
+.banner__about {
     display: flex;
     place-items: center;
 
     text-decoration: none;
-
-    /*color: var(--ig-primary-text);*/
 
     padding: .5rem 1rem;
 
@@ -51,4 +47,3 @@
     background-color: rgb(var(--ig-primary-button));
     color: rgb(var(--web-always-white));
 }
-

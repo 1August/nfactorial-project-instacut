@@ -42,7 +42,7 @@
     width: 1.5rem;
     aspect-ratio: 1;
 
-    background-color: #333333;
+    background-color: rgba(51, 51, 51, .6);
     border-radius: 100%;
 
     position: relative;

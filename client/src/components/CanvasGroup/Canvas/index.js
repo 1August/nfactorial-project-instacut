@@ -1,7 +1,8 @@
 import './Canvas.css'
-import {useRef} from "react";
 
-export const Canvas = (props) => {
+import {useRef} from "react"
+
+export const Canvas = props => {
     const {
         refCanvas,
         refDownload,

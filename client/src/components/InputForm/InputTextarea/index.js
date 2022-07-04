@@ -1,5 +1,6 @@
 import './InputTextarea.css'
-import {Textarea} from "../../../UI/Textarea";
+
+import {Textarea} from "../../../UI/Textarea"
 
 export const InputTextarea = props => {
     const {

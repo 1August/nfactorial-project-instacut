@@ -1,11 +1,10 @@
 import './SettingsPage.css'
 
-import {InputForm} from "../InputForm";
-import {Result} from "../Result";
-import {SettingsList} from "../SettingsList";
-import {Routes, Route} from "react-router-dom";
-import {TextCutter} from "../InputForm/TextCutter";
-import {useState} from "react";
+import {InputForm} from "../InputForm"
+import {SettingsList} from "../SettingsList"
+import {Routes, Route} from "react-router-dom"
+import {TextCutter} from "../InputForm/TextCutter"
+import {useState} from "react"
 
 export const SettingsPage = (props) => {
     const {
@@ -15,14 +14,9 @@ export const SettingsPage = (props) => {
         textareaCounter,
         handleTextareaChange,
         textarea,
-        handleFormSubmit,
         styles,
         handleStylesInputChange,
         refTextPart,
-        refCanvasPages,
-        refDownload,
-        refCanvas,
-        canvasPages,
         textPart,
         handleCreate,
         divideTexts,
@@ -31,8 +25,8 @@ export const SettingsPage = (props) => {
         picturePart
     } = props
 
-    const [textPartCopy, setTextPartCopy] = useState([...textPart].join('. '))
-    const [picturePartCopy, setPicturePartCopy] = useState([...picturePart].join('.'))
+    const [textPartCopy] = useState([...textPart].join('. '))
+    const [picturePartCopy] = useState([...picturePart].join('.'))
 
     return(
         <section id={'settingsPage'}>
@@ -46,7 +40,6 @@ export const SettingsPage = (props) => {
                         setTextPart={setTextPart}
                         setPicturePart={setPicturePart}
                         picturePart={picturePart}
-
                         textPartCopy={textPartCopy}
                         picturePartCopy={picturePartCopy}
                     />
@@ -59,7 +52,6 @@ export const SettingsPage = (props) => {
                         textareaCounter={textareaCounter}
                         handleTextareaChange={handleTextareaChange}
                         textarea={textarea}
-                        handleFormSubmit={handleFormSubmit}
                         styles={styles}
                         handleStylesInputChange={handleStylesInputChange}
                         handleCreate={handleCreate}
@@ -69,15 +61,3 @@ export const SettingsPage = (props) => {
         </section>
     )
 }
-
-
-
-
-{/*<a href="#" onClick={handleDownloadAllClick}>Download all</a>*/}
-{/*<Result*/}
-{/*    refTextPart={refTextPart}*/}
-{/*    refCanvasPages={refCanvasPages}*/}
-{/*    refDownload={refDownload}*/}
-{/*    refCanvas={refCanvas}*/}
-{/*    canvasPages={canvasPages}*/}
-{/*/>*/}
