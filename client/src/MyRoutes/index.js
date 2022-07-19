@@ -25,12 +25,17 @@ export const MyRoutes = props => {
         setTextPart,
         picturePart,
         divideTexts,
-        downloadLinks
+        downloadLinks,
+        setIsModalOpen
     } = props
 
     return(
         <Routes>
-            <Route path={'/'} element={<Banner/>}/>
+            <Route path={'/'} element={
+                <Banner
+                    setIsModalOpen={setIsModalOpen}
+                />
+            }/>
             <Route path={'create/*'} element={
                 <div className="container">
                     <SettingsPage

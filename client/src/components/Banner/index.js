@@ -1,7 +1,20 @@
 import './Banner.css'
+import addPostIcon from "../../static/img/Add.png";
+import {Link} from "react-router-dom";
+import {Button} from "../../UI/Button";
 
 export const Banner = props => {
-    return(
+    const {
+        setIsModalOpen
+    } = props
+
+    // Handlers
+    const handleOpenModalClick = e => {
+        e.preventDefault()
+        setIsModalOpen(true)
+    }
+
+    return (
         <div id="banner">
             <div className="banner__bgFilter">
                 <div className="container">
@@ -10,10 +23,13 @@ export const Banner = props => {
                         <h4>Easy tool to create fast post with dividing text and pictures.</h4>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consequatur, delectus
-                            exercitationem expedita explicabo ipsa ipsam libero molestias neque, odio optio quam quibusdam
+                            exercitationem expedita explicabo ipsa ipsam libero molestias neque, odio optio quam
+                            quibusdam
                             ratione. Accusantium excepturi fuga illum officia saepe.
                         </p>
-                        <p className={'banner__helper'}>Click <span>+</span> icon to start</p>
+                        <Link to="#" onClick={handleOpenModalClick}>
+                            <Button>Create</Button>
+                        </Link>
                     </div>
                 </div>
             </div>

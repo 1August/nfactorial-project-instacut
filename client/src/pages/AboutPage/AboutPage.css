@@ -7,11 +7,13 @@
 
 .about__aboutMe{
     display: flex;
-    place-items: center;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
 }
 
 .about__avatar{
-    width: 40%;
+    width: 30%;
 
     display: flex;
 }
@@ -20,7 +22,7 @@
     display: block;
     margin: auto;
 
-    width: 40%;
+    width: 50%;
     aspect-ratio: 1;
     object-fit: cover;
     object-position: center;
@@ -66,4 +68,37 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+
+@media screen and (max-width: 768px){
+    .about__aboutMe{
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    .about__avatar{
+        width: 100%;
+    }
+
+    .about__avatar img{
+        width: 200px;
+    }
+
+    .about__mainInfo{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .about__accountInfo{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .about__info{
+        width: 100%;
+    }
 }

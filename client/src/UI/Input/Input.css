@@ -1,4 +1,4 @@
-input{
+input:not([type='range']){
     background: transparent;
     border: 1px solid rgb(var(--ig-stroke));
     border-radius: 3px;

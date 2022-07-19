@@ -242,6 +242,7 @@ function App() {
                     setTextPart={setTextPart}
                     setPicturePart={setPicturePart}
                     downloadLinks={downloadLinks}
+                    setIsModalOpen={setIsModalOpen}
                 />
                 {
                     isModalOpen &&
