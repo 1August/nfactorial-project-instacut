@@ -82,3 +82,17 @@
     transform: translate(calc(-50% + 1px), -50%);
 }
 
+.carouselPagesCounter{
+    position: absolute;
+    bottom: 2%;
+    right: 5%;
+
+    background-color: rgba(51, 51, 51, .6);
+    color: #fff;
+
+    border-radius: 12px;
+    padding: .25rem;
+
+    z-index: 100;
+}
+

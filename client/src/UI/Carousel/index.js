@@ -56,6 +56,7 @@ export const Carousel = props => {
                     <img src={rightArrow} alt="right"/>
                 </div>
             </div>
+            <span className="carouselPagesCounter">{activeCanvasIdx + 1}/{refCanvasPages.current.length}</span>
         </div>
     )
 }
