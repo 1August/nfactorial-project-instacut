@@ -8,6 +8,10 @@
     color: #fff;
 }
 
+.banner__bgFilter .container{
+    width: 100%;
+}
+
 .banner__info > * {
     margin-bottom: 1rem;
 }
