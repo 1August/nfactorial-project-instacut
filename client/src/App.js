@@ -1,3 +1,4 @@
+import './static/css/fonts/Billabong/stylesheet.css'
 import './App.css'
 import './static/css/variables.css'
 
@@ -97,7 +98,7 @@ function App() {
     }
     const divideTexts = (setToText, setToPicture) => {
         if (setToText && setToPicture) {
-            setTextPart(setToText)
+            setTextPart(setToText.filter(el => el !== ''))
             setPicturePart(setToPicture)
             return
         }
@@ -113,7 +114,7 @@ function App() {
                 toPicture.push(refSentences.current[i])
             }
         }
-        setTextPart(toText)
+        setTextPart(toText.filter(el => el !== ''))
         setPicturePart(toPicture)
     }
     const putTextIntoContext = () => {

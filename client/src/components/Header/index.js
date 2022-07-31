@@ -1,26 +1,34 @@
 import './Header.css'
 
-import addPostIcon from '../../static/img/Add.png'
-import homeIcon from '../../static/img/Home.png'
-import aboutIcon from '../../static/img/information.png'
+import '../../static/css/fonts/Billabong/stylesheet.css'
+import infoIcon from '../../static/img/information.png'
+import aboutIcon from '../../static/img/icons8-decision-50.png'
 
 import {Link} from "react-router-dom"
 
 export const Header = props => {
-
-
-    return(
+    return (
         <header>
             <div className="container">
                 <div className="header__logo">
-                    <Link to="/">
-                        <h1>InstaCut</h1>
-                    </Link>
+                    <abbr title="Home page">
+                        <Link to="/">
+                            <h1>InstaCut</h1>
+                        </Link>
+                    </abbr>
                 </div>
                 <div className="header__links">
                     <ul>
-                        {/*<li className={'header__home'}><Link to="/"><img src={homeIcon} alt="link"/></Link></li>*/}
-                        <li className={'header__about'}><Link to="about"><img src={aboutIcon} alt="link"/></Link></li>
+                        <li className={'header__info'}>
+                            <abbr title="How to use">
+                                <Link to="info"><img src={infoIcon} alt="link"/></Link>
+                            </abbr>
+                        </li>
+                        <li className={'header__about'}>
+                            <abbr title="About creator">
+                                <Link to="about"><img src={aboutIcon} alt="link"/></Link>
+                            </abbr>
+                        </li>
                     </ul>
                 </div>
             </div>

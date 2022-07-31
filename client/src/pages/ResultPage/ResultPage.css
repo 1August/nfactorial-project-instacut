@@ -1,6 +1,12 @@
 #resultPage{
-    margin: 2rem 0;
+    margin: 1rem 0;
+}
 
+#resultPage h1{
+    padding: 1rem 0;
+}
+
+#resultPage .window{
     background-color: rgb(var(--ig-primary-background));
     border: 1px solid rgb(var(--ig-elevated-separator));
     border-bottom-right-radius: 3px;
@@ -9,6 +15,21 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+}
+
+.resultInfo a {
+    display: inline-block;
+    font-weight: var(--font-weight-system-semibold);
+    font-size: var(--system-12-font-size);
+    line-height: var(--system-12-line-height);
+    font-family: var(--font-family-system);
+    color: rgb(var(--ig-primary-button));
+    text-decoration: none;
+    margin: 1rem 0;
+}
+
+.resultInfo a + a{
+    margin-left: 1rem;
 }
 
 @media screen and (max-width: 768px) {

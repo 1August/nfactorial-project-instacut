@@ -3,6 +3,7 @@ import {Banner} from "../components/Banner"
 import {SettingsPage} from "../components/SettingsPage"
 import {ResultPage} from "../pages/ResultPage"
 import {AboutPage} from "../pages/AboutPage"
+import {InfoPage} from "../pages/InfoPage";
 
 export const MyRoutes = props => {
     const {
@@ -71,6 +72,11 @@ export const MyRoutes = props => {
                         canvasPages={canvasPages}
                         downloadLinks={downloadLinks}
                     />
+                </div>
+            }/>
+            <Route path={'info'} element={
+                <div className="container">
+                    <InfoPage/>
                 </div>
             }/>
             <Route path={'about'} element={

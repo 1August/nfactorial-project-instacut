@@ -12,6 +12,7 @@ header .container{
 }
 
 .header__logo a{
+    font-family: 'billabongregular', sans-serif;
     color: rgb(var(--ig-primary-text));
     text-decoration: none;
 }

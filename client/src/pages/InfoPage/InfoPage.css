@@ -1,0 +1,25 @@
+.infoPage{
+    padding: 2rem 0;
+}
+
+.infoPage a {
+    display: inline-block;
+    font-weight: var(--font-weight-system-semibold);
+    font-size: var(--system-12-font-size);
+    line-height: var(--system-12-line-height);
+    font-family: var(--font-family-system);
+    color: rgb(var(--ig-primary-button));
+    text-decoration: none;
+    margin: 1rem 0;
+}
+
+.infoPage__gallery{
+    display: grid;
+    grid-gap: 2rem;
+}
+
+.infoPage__gallery img{
+    width: 100%;
+
+    border: 1px solid #333;
+}

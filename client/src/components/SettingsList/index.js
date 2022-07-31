@@ -7,8 +7,8 @@ export const SettingsList = props => {
 
     return (
         <ul>
-            <li><NavLink to="step1" className={checkIsActive}>Step 1</NavLink></li>
-            <li><NavLink to="step2" className={checkIsActive}>Step 2</NavLink></li>
+            <li><NavLink to="step1" className={checkIsActive}>Cut the text</NavLink></li>
+            <li><NavLink to="step2" className={checkIsActive}>Picture settings</NavLink></li>
         </ul>
     )
 }

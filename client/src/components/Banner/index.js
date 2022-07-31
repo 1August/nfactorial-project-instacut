@@ -1,7 +1,8 @@
 import './Banner.css'
-import addPostIcon from "../../static/img/Add.png";
 import {Link} from "react-router-dom";
 import {Button} from "../../UI/Button";
+
+import infoIcon from '../../static/img/information.png'
 
 export const Banner = props => {
     const {
@@ -22,10 +23,7 @@ export const Banner = props => {
                         <h1>Automate creating your Instagram post.</h1>
                         <h4>Easy tool to create fast post with dividing text and pictures.</h4>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consequatur, delectus
-                            exercitationem expedita explicabo ipsa ipsam libero molestias neque, odio optio quam
-                            quibusdam
-                            ratione. Accusantium excepturi fuga illum officia saepe.
+                            Click <img src={infoIcon} alt="Info Icon"/> to see how to use.
                         </p>
                         <Link to="#" onClick={handleOpenModalClick}>
                             <Button>Create</Button>
