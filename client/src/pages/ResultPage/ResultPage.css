@@ -36,4 +36,11 @@
     #resultPage{
         flex-direction: column;
     }
+    #resultPage .window{
+        flex-direction: column;
+    }
+    #textPart{
+        padding: 2rem 1rem;
+        border-top: 1px solid rgb(var(--ig-elevated-separator));
+    }
 }
